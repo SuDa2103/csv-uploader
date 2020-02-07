@@ -40,6 +40,11 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def import
+    Book.import(params[:file])
+    redirect_to root_path, notice: "Books added succesfully!"
+  end
+
   private
 
   def book_params

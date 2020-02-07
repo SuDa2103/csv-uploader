@@ -1,0 +1,11 @@
+<div>
+  <% @books.each do |book| %>
+  <h2><%= book.title %></h2>
+  <h3><%= book.author %></h3>
+  <%= link_to "Edit", edit_book_path(book)  %>
+  <%= link_to "Delete", book_path(book), :method => :delete  %>
+  <% end %>
+</div>
+<br>
+
+<%= link_to "Add a New Book", new_book_path  %>

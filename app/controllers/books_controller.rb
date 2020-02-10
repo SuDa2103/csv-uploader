@@ -41,8 +41,11 @@ class BooksController < ApplicationController
   end
 
   def import
-    Book.import(params[:file])
-    redirect_to root_path, notice: "Books added succesfully!"
+    if Book.import(params[:file])
+      redirect_to root_path, notice: "Books added succesfully!"
+    else
+      redirect_to root_path, notice: "Error!"
+    end
   end
 
   private

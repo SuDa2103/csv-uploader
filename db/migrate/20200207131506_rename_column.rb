@@ -1,5 +1,8 @@
 class RenameColumn < ActiveRecord::Migration[5.2]
   def change
-    rename_column :books, :PublisherName, :publisher
+
+    if Book.attribute_names.include? "publishername"
+    rename_column :books, :publishername, :publisher
+  end
   end
 end
